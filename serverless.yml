@@ -1,0 +1,17 @@
+org: lululemon
+app: zephyr
+service: zephyr
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: python3.8
+
+functions:
+  record_transaction:
+    handler: handler.record_transaction
+    events:
+      - httpApi:
+          path: /record_transaction
+          method: post
+
